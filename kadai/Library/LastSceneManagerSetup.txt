@@ -1,0 +1,4 @@
+sceneSetups:
+- path: Assets/Scene/kadai.unity
+  isLoaded: 1
+  isActive: 1
