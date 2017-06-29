@@ -9,8 +9,9 @@ public class PlayerMove : MonoBehaviour {
     private float               jumpPower = 2.5f;
     private float               rotationSpeed = 180.0f;
     private const float         GRAVITY = 9.8f;
-
     private bool                moveType = true;
+
+    public GameObject targetEnemy = null;
 
     
     void Start () {
@@ -19,6 +20,8 @@ public class PlayerMove : MonoBehaviour {
 
 
     void Update() {
+        setTargetEnemy();
+
         if (moveType)
         {
             playerMove_1Parson();
@@ -95,5 +98,21 @@ public class PlayerMove : MonoBehaviour {
         }
         //移動処理
         charaCon.Move(move * Time.deltaTime);
+    }
+
+    private void setTargetEnemy()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hitInfo;
+
+        if(Physics.Raycast(ray, out hitInfo , 10))
+        {
+            if(hitInfo.collider.gameObject.tag == "Enemy")
+            {
+                targetEnemy = hitInfo.collider.gameObject;
+                return;
+            }
+        }
+        targetEnemy = null;
     }
 }

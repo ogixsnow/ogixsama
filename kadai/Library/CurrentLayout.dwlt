@@ -324,18 +324,18 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Prefab
+    - Assets/script
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Prefab
+  - Assets/script
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\p088\Desktop\ogixsama\kadai
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: de240000
-    m_LastClickedID: 9438
+    m_SelectedIDs: e2240000
+    m_LastClickedID: 9442
     m_ExpandedIDs: 00000000ba24000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -480,9 +480,9 @@ MonoBehaviour:
     height: 439
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 40e4ffff
-    m_LastClickedID: -7104
-    m_ExpandedIDs: e4fbffff00000000
+    m_SelectedIDs: 8c250000
+    m_LastClickedID: 9612
+    m_ExpandedIDs: e4fbffff000000008c250000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
