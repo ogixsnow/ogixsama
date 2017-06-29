@@ -10,28 +10,40 @@ public class CameraCtrl : MonoBehaviour {
 	void Start () {
         PM = GameObject.FindWithTag("Player").GetComponent<PlayerMove>();
 	}
-	
-	
-	void Update () {
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            changeCameraMode();
-        }
 
-	}
-
-    //カメラを切り替える処理
-    private void changeCameraMode()
+    //カメラ切り替え
+    public void changeSight(bool type)
     {
-        if(transform.parent == null)
+        if (type)
         {
-            transform.parent =        PM.transform;
-            transform.localPosition = Vector3.zero;
+            changeCameraMode_1Person();
         }
         else
         {
-            transform.parent = null;
-            transform.position = new Vector3(0, 4, -10);
+            changeCameraMode_3Person();
         }
     }
+	
+	//1人称カメラ切り替え
+    private void changeCameraMode_1Person()
+    {
+        if(transform.parent == null)
+        {
+            transform.parent = PM.transform;
+            transform.localPosition = Vector3.zero;
+            transform.localEulerAngles = Vector3.zero;
+        }
+    }
+
+    //3人称カメラ切り替え
+    private void changeCameraMode_3Person()
+    {
+        if(transform.parent != null)
+        {
+            transform.parent = null;
+            transform.position = new Vector3(0, 4, -10);
+            transform.localEulerAngles = Vector3.zero;
+        }
+    }
+    
 }
