@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class C01_Player : MonoBehaviour {
+public class PlayerMove : MonoBehaviour {
     private CharacterController charaCon;
     private Vector3 move = Vector3.zero;
     private float speed = 5.0f;
