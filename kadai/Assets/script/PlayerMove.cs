@@ -8,6 +8,7 @@ public class PlayerMove : MonoBehaviour {
     private float speed = 5.0f;
 
     private const float GRAVITY = 9.8f;
+    public float jumpPower = 2.0f;
 
     // Use this for initialization
     void Start () {
@@ -20,6 +21,10 @@ public class PlayerMove : MonoBehaviour {
         move = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
         move *= speed;
         move.y += y;
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            move.y = jumpPower;
+        }
         move.y -= GRAVITY * Time.deltaTime;
         charaCon.Move(move * speed * Time.deltaTime);
 	}
