@@ -78,6 +78,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\script\FPSController.cs" />
     <Compile Include="Assets\script\Gravity.cs" />
     <Compile Include="Assets\script\inputkeys.cs" />
   </ItemGroup>

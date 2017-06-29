@@ -45,7 +45,7 @@ MonoBehaviour:
   m_MinSize: {x: 683, y: 492}
   m_MaxSize: {x: 14004, y: 14042}
   vertical: 0
-  controlID: 44
+  controlID: 70
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -209,7 +209,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 492}
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
-  controlID: 45
+  controlID: 71
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -233,7 +233,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 221}
   m_MaxSize: {x: 8006, y: 4021}
   vertical: 0
-  controlID: 46
+  controlID: 11
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -324,18 +324,18 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Material
+    - Assets/script
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Material
+  - Assets/script
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\p088\Desktop\ogixsama\kadai
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 22250000
-    m_LastClickedID: 9506
+    m_SelectedIDs: dc240000
+    m_LastClickedID: 9436
     m_ExpandedIDs: 00000000b424000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -480,8 +480,8 @@ MonoBehaviour:
     height: 439
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 9cf4ffff
-    m_LastClickedID: -2916
+    m_SelectedIDs: 66250000
+    m_LastClickedID: 9574
     m_ExpandedIDs: e4fbffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -532,14 +532,14 @@ MonoBehaviour:
     width: 1053
     height: 439
   m_SceneLighting: 1
-  lastFramingTime: 369.94806758685667
+  lastFramingTime: 136.80010373999977
   m_2DMode: 0
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 5.3837366, y: 0.19192004, z: -3.4645567}
+    m_Target: {x: 0, y: 1.039, z: -1.02}
     speed: 2
-    m_Value: {x: 5.3837366, y: 0.19192004, z: -3.4645567}
+    m_Value: {x: 0, y: 1.039, z: -1.02}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -564,11 +564,11 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: 0.04456885, y: 0.8658156, z: -0.07840517, w: 0.49216816}
     speed: 2
-    m_Value: {x: 0.044568855, y: 0.86581564, z: -0.07840518, w: 0.4921682}
+    m_Value: {x: 0.04456885, y: 0.8658155, z: -0.078405164, w: 0.49216813}
   m_Size:
-    m_Target: 17.164335
+    m_Target: 4.0416584
     speed: 2
-    m_Value: 17.164335
+    m_Value: 4.0416584
   m_Ortho:
     m_Target: 0
     speed: 2
