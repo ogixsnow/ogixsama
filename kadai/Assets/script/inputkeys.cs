@@ -11,7 +11,6 @@ public class inputkeys : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        this.transform.Rotate(1, 1, 1);
         Vector3 v = this.transform.position;
         if (Input.GetKey(KeyCode.LeftArrow))
         {
@@ -30,5 +29,14 @@ public class inputkeys : MonoBehaviour {
             v.z -= 0.05f;
         }
         this.transform.position = v;
+
+        if (Input.GetKey(KeyCode.A))
+        {
+            this.transform.Rotate(new Vector3(0, 0, -1f));
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            this.transform.Rotate(new Vector3(0, 0, 1f));
+        }
     }
 }
