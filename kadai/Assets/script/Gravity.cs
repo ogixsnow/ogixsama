@@ -11,6 +11,6 @@ public class Gravity : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Physics.gravity = new Vector3(0f,-9.81f, 0f);
+        Physics.gravity = new Vector3(0f,9.81f, 0f);
 	}
 }
