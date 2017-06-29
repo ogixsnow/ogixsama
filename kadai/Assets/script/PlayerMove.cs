@@ -13,6 +13,7 @@ public class PlayerMove : MonoBehaviour {
 
     public GameObject targetEnemy = null;
     public GameObject prefab_hitEffect1;
+    private Vector3 attackPoint;
 
     
     void Start () {
@@ -112,6 +113,7 @@ public class PlayerMove : MonoBehaviour {
             if(hitInfo.collider.gameObject.tag == "Enemy")
             {
                 targetEnemy = hitInfo.collider.gameObject;
+                attackPoint = hitInfo.point;
                 return;
             }
         }
@@ -124,7 +126,8 @@ public class PlayerMove : MonoBehaviour {
         {
             if(targetEnemy != null)
             {
-                Instantiate(prefab_hitEffect1, targetEnemy.transform.position, Quaternion.identity);
+                GameObject effect = Instantiate(prefab_hitEffect1, attackPoint, Quaternion.identity) as GameObject;
+                Destroy(effect, 0.2f);
                 Destroy(targetEnemy);
             }
         }
