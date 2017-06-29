@@ -12,6 +12,7 @@ public class PlayerMove : MonoBehaviour {
     private bool                moveType = true;
 
     public GameObject targetEnemy = null;
+    public GameObject prefab_hitEffect1;
 
     
     void Start () {
@@ -123,6 +124,7 @@ public class PlayerMove : MonoBehaviour {
         {
             if(targetEnemy != null)
             {
+                Instantiate(prefab_hitEffect1, targetEnemy.transform.position, Quaternion.identity);
                 Destroy(targetEnemy);
             }
         }
