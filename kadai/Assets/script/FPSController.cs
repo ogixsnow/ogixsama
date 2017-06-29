@@ -25,5 +25,7 @@ public class FPSController : MonoBehaviour {
 
         Vector3 movement = new Vector3(moveLR,moveFB,0);
         movement = transform.rotation * movement;
+        player.Move(movement * Time.deltaTime);
+
 	}
 }
