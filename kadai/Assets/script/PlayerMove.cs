@@ -21,6 +21,7 @@ public class PlayerMove : MonoBehaviour {
 
     void Update() {
         setTargetEnemy();
+        attack_LClick();
 
         if (moveType)
         {
@@ -114,5 +115,16 @@ public class PlayerMove : MonoBehaviour {
             }
         }
         targetEnemy = null;
+    }
+
+    private void attack_LClick()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            if(targetEnemy != null)
+            {
+                Destroy(targetEnemy);
+            }
+        }
     }
 }
