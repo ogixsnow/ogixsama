@@ -14,14 +14,20 @@ public class PlayerMove : MonoBehaviour {
     public GameObject targetEnemy = null;
     public GameObject prefab_hitEffect1;
     private Vector3 attackPoint;
+    private Weapon weapon;
 
     
     void Start () {
+        weapon = new Weapon();
         charaCon = GetComponent<CharacterController>();
 	}
 
 
     void Update() {
+        if (Input.GetMouseButtonDown(1))
+        {
+            weapon.changeWeapon();
+        }
         setTargetEnemy();
         attack_LClick();
 
