@@ -51,4 +51,34 @@ public class PlayerMove : MonoBehaviour {
         //移動処理
         charaCon.Move(move * speed * Time.deltaTime);
 	}
+
+    //3人称視点移動
+    private void playerMove_3Parson()
+    {
+        //移動量取得
+        float y = move.y;
+        move = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
+        Vector3 playerDir = move;
+        move *= speed;
+
+        //重力/ジャンプ処理
+        move.y += y;
+        if (charaCon.isGrounded)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                move.y = jumpPower;
+            }
+        }
+        move.y -= GRAVITY * Time.deltaTime;
+
+        //プレイヤーの方向変更
+        if(playerDir.magnitude > 0.1f)
+        {
+            Quaternion q = Quaternion.LookRotation(playerDir);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, q, rotationSpeed * Time.deltaTime);
+        }
+        //移動処理
+        charaCon.Move(move * Time.deltaTime);
+    }
 }
