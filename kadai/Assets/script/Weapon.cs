@@ -11,4 +11,9 @@ public class Weapon{
         type = (type + 1) % num;
         Debug.Log("現在の武器:" + type);
     }
+
+    public int getType()
+    {
+        return type;
+    }
 }
