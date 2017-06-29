@@ -10,6 +10,8 @@ public class PlayerMove : MonoBehaviour {
     private float               rotationSpeed = 180.0f;
     private const float         GRAVITY = 9.8f;
 
+    private bool                moveType = true;
+
     
     void Start () {
         charaCon = GetComponent<CharacterController>();
@@ -17,7 +19,20 @@ public class PlayerMove : MonoBehaviour {
 
 
     void Update() {
-        playerMove_1Parson();
+        if (moveType)
+        {
+            playerMove_1Parson();
+        }
+        else
+        {
+            playerMove_3Parson();
+        }
+    }
+
+    //視点切り替え
+    public void changeMoveType(bool type)
+    {
+        moveType = type;
     }
 
     //1人称視点
