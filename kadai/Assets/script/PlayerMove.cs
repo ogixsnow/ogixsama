@@ -19,11 +19,14 @@ public class PlayerMove : MonoBehaviour {
     public GameObject prefab_bom;
     private bool used_bom = false;
 
+    public int gun_num;
+    private const int GUM_MAX_NUM=30;
+
     
     void Start () {
         weapon = new Weapon();                          //武器のメモリを確保し、初期化
         charaCon = GetComponent<CharacterController>();
-
+        gun_num = GUM_MAX_NUM;
         
     }
 
@@ -51,18 +54,35 @@ public class PlayerMove : MonoBehaviour {
             case 0:attack01_gun(); break;
             case 1:attack02_bom(); break;
         }
+        
     }
 
     //銃攻撃
     private void attack01_gun()
     {
+        if (gun_num == 0) { return; }
+
         if(targetEnemy != null)
         {
             GameObject effect = Instantiate(prefab_hitEffect1, attackPoint, Quaternion.identity) as GameObject;
             Destroy(effect, 0.2f);
             Destroy(targetEnemy);
         }
+
+        gun_num--;
+        if(gun_num == 0) { StartCoroutine("reChargeGun"); }
+        
     }
+
+    //銃の再装填コルーチン
+    IEnumerator reChargeGun()
+    {
+        yield return new WaitForSeconds(3.0f);
+        gun_num = GUM_MAX_NUM;
+    }
+
+    
+
 
     //ボム攻撃
     private void attack02_bom()
