@@ -16,6 +16,21 @@ public class Bom : MonoBehaviour {
         GameObject effect = Instantiate(prefab_HitEffect2, transform.position, Quaternion.identity) as GameObject;
         Destroy(effect, 1.0f);
 
+        bomAttack();
+
         Destroy(gameObject);
+    }
+
+    //ボムによる攻撃処理
+    private void bomAttack()
+    {
+        Collider[] targets = Physics.OverlapSphere(transform.position, 0.7f);
+        foreach(Collider obj in targets)
+        {
+            if(obj.tag == "Enemy")
+            {
+                Destroy(obj.gameObject);
+            }
+        }
     }
 }
