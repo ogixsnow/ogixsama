@@ -119,7 +119,7 @@ public class PlayerMove : MonoBehaviour {
     }
 
     //武器変更
-    private void change_weapon()
+    public void change_weapon()
     {
         weapon.changeWeapon();          //武器切り替え
         ui.changeText_enable(weapon.getType());

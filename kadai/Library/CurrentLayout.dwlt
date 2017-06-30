@@ -121,7 +121,7 @@ MonoBehaviour:
   - {fileID: 13}
   - {fileID: 18}
   m_Selected: 0
-  m_LastSelected: 1
+  m_LastSelected: 0
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -334,9 +334,9 @@ MonoBehaviour:
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: ea240000
-    m_LastClickedID: 9450
-    m_ExpandedIDs: 00000000c224000000ca9a3bffffff7f
+    m_SelectedIDs: e8240000
+    m_LastClickedID: 9448
+    m_ExpandedIDs: 00000000c024000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -364,7 +364,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000c2240000
+    m_ExpandedIDs: 00000000c0240000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -395,18 +395,18 @@ MonoBehaviour:
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: Anim
+      m_OriginalName: Anim
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 9830
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 5}
     m_CreateAssetUtility:
@@ -445,7 +445,7 @@ MonoBehaviour:
     y: 92
     width: 276
     height: 710
-  m_ScrollPosition: {x: 0, y: 0}
+  m_ScrollPosition: {x: 0, y: 228.95508}
   m_InspectorMode: 0
   m_PreviewResizer:
     m_CachedPref: 160
@@ -480,9 +480,9 @@ MonoBehaviour:
     height: 433
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 3a060000
-    m_LastClickedID: 0
-    m_ExpandedIDs: e4fbffff00000000
+    m_SelectedIDs: aeadffff
+    m_LastClickedID: -21074
+    m_ExpandedIDs: aeadffffbaf7ffffe4fbffff00000000a0250000be250000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -532,14 +532,14 @@ MonoBehaviour:
     width: 1050
     height: 433
   m_SceneLighting: 1
-  lastFramingTime: 408.71737338219197
+  lastFramingTime: 1996.8124844848403
   m_2DMode: 1
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 363.13055, y: 171.73352, z: 0}
+    m_Target: {x: 80.95238, y: 72.85714, z: 0}
     speed: 2
-    m_Value: {x: 363.13055, y: 171.73352, z: 0}
+    m_Value: {x: 80.95238, y: 72.85714, z: 0}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -566,9 +566,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 702.43
+    m_Target: 755.6015
     speed: 2
-    m_Value: 702.43
+    m_Value: 755.6015
   m_Ortho:
     m_Target: 1
     speed: 2
