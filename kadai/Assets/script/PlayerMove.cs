@@ -23,6 +23,8 @@ public class PlayerMove : MonoBehaviour {
     private const int GUM_MAX_NUM=30;
     private Ui ui;
 
+    private bool isButton = false;
+
     
     void Start () {
         ui = GameObject.Find("GameRoot").GetComponent<Ui>();
@@ -37,7 +39,7 @@ public class PlayerMove : MonoBehaviour {
 
     void Update() {
         setTargetEnemy();                                       //Enemy(ターゲット)の情報を取得
-        if (Input.GetMouseButtonDown(0)) { attack_weapon(); }   //左クリックで武器攻撃
+        if (Input.GetMouseButtonDown(0)&& !isButton) { attack_weapon(); }   //左クリックで武器攻撃
         if (Input.GetMouseButtonDown(1)) { change_weapon(); }   //右クリックで武器変更
 
         if (moveType)
@@ -48,6 +50,11 @@ public class PlayerMove : MonoBehaviour {
         {
             playerMove_3Parson();                               //3人称視点操作
         }
+    }
+
+    public void setIsButton(bool button)
+    {
+        isButton = button;
     }
 
     //武器攻撃
