@@ -29,7 +29,8 @@ public class PlayerMove : MonoBehaviour {
         weapon = new Weapon();                          //武器のメモリを確保し、初期化
         charaCon = GetComponent<CharacterController>();
         gun_num = GUM_MAX_NUM;
-        ui.changeText_GunNum(gun_num);
+        //ui.changeText_GunNum(gun_num);
+        ui.initialize(weapon.getType(), gun_num, used_bom);
         
     }
 
@@ -104,6 +105,7 @@ public class PlayerMove : MonoBehaviour {
             bom.GetComponent<Rigidbody>().angularVelocity = Vector3.forward * 7;
 
             used_bom = true;
+            ui.changeText_Bom(used_bom);
             StartCoroutine("reChargeBom");
         }
     }
@@ -113,12 +115,15 @@ public class PlayerMove : MonoBehaviour {
     {
         yield return new WaitForSeconds(2.5f);
         used_bom = false;
+        ui.changeText_Bom(used_bom);
     }
 
     //武器変更
     private void change_weapon()
     {
         weapon.changeWeapon();          //武器切り替え
+        ui.changeText_enable(weapon.getType());
+
     }
 
     //視点切り替え
