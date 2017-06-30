@@ -21,12 +21,15 @@ public class PlayerMove : MonoBehaviour {
 
     public int gun_num;
     private const int GUM_MAX_NUM=30;
+    private Ui ui;
 
     
     void Start () {
+        ui = GameObject.Find("GameRoot").GetComponent<Ui>();
         weapon = new Weapon();                          //武器のメモリを確保し、初期化
         charaCon = GetComponent<CharacterController>();
         gun_num = GUM_MAX_NUM;
+        ui.changeText_GunNum(gun_num);
         
     }
 
@@ -70,6 +73,7 @@ public class PlayerMove : MonoBehaviour {
         }
 
         gun_num--;
+        ui.changeText_GunNum(gun_num);
         if(gun_num == 0) { StartCoroutine("reChargeGun"); }
         
     }
@@ -79,6 +83,7 @@ public class PlayerMove : MonoBehaviour {
     {
         yield return new WaitForSeconds(3.0f);
         gun_num = GUM_MAX_NUM;
+        ui.changeText_GunNum(gun_num);
     }
 
     
