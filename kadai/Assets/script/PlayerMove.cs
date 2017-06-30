@@ -16,6 +16,8 @@ public class PlayerMove : MonoBehaviour {
     private Vector3             attackPoint;            //攻撃箇所（位置）
     private Weapon              weapon;                //武器
 
+    public GameObject prefab_bom;
+
     
     void Start () {
         weapon = new Weapon();                          //武器のメモリを確保し、初期化
@@ -43,15 +45,33 @@ public class PlayerMove : MonoBehaviour {
     {
         switch (weapon.getType())
         {
-            case 0:
-                if(targetEnemy != null)
-                {
-                    GameObject effect = Instantiate(prefab_hitEffect1, attackPoint, Quaternion.identity) as GameObject; //エフェクト発生
-                    Destroy(effect, 0.2f);
-                    Destroy(targetEnemy);
-                }
-                break;
+            case 0:attack01_gun(); break;
+            case 1:attack02_bom(); break;
         }
+    }
+
+    //銃攻撃
+    private void attack01_gun()
+    {
+        if(targetEnemy != null)
+        {
+            GameObject effect = Instantiate(prefab_hitEffect1, attackPoint, Quaternion.identity) as GameObject;
+            Destroy(effect, 0.2f);
+            Destroy(targetEnemy);
+        }
+    }
+
+    //ボム攻撃
+    private void attack02_bom()
+    {
+        Vector3 pos = transform.position + transform.TransformDirection(Vector3.forward);
+        GameObject bom = Instantiate(prefab_bom, pos, Quaternion.identity) as GameObject;
+
+        Vector3 bom_speed = transform.TransformDirection(Vector3.forward) *5;
+        bom_speed += Vector3.up * 5;
+        bom.GetComponent<Rigidbody>().velocity = bom_speed;
+
+        bom.GetComponent<Rigidbody>().angularVelocity = Vector3.forward * 7;
     }
 
     //武器変更
