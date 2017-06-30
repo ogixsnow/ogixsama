@@ -17,12 +17,15 @@ public class PlayerMove : MonoBehaviour {
     private Weapon              weapon;                //武器
 
     public GameObject prefab_bom;
+    private bool used_bom = false;
 
     
     void Start () {
         weapon = new Weapon();                          //武器のメモリを確保し、初期化
         charaCon = GetComponent<CharacterController>();
-	}
+
+        
+    }
 
 
     void Update() {
@@ -64,14 +67,27 @@ public class PlayerMove : MonoBehaviour {
     //ボム攻撃
     private void attack02_bom()
     {
-        Vector3 pos = transform.position + transform.TransformDirection(Vector3.forward);
-        GameObject bom = Instantiate(prefab_bom, pos, Quaternion.identity) as GameObject;
+        if (!used_bom)
+        {
+            Vector3 pos = transform.position + transform.TransformDirection(Vector3.forward);
+            GameObject bom = Instantiate(prefab_bom, pos, Quaternion.identity) as GameObject;
 
-        Vector3 bom_speed = transform.TransformDirection(Vector3.forward) *5;
-        bom_speed += Vector3.up * 5;
-        bom.GetComponent<Rigidbody>().velocity = bom_speed;
+            Vector3 bom_speed = transform.TransformDirection(Vector3.forward) * 5;
+            bom_speed += Vector3.up * 5;
+            bom.GetComponent<Rigidbody>().velocity = bom_speed;
 
-        bom.GetComponent<Rigidbody>().angularVelocity = Vector3.forward * 7;
+            bom.GetComponent<Rigidbody>().angularVelocity = Vector3.forward * 7;
+
+            used_bom = true;
+            StartCoroutine("reChargeBom");
+        }
+    }
+
+    //ボムの連射管理コルーチン
+    IEnumerator reChargeBom()
+    {
+        yield return new WaitForSeconds(2.5f);
+        used_bom = false;
     }
 
     //武器変更
