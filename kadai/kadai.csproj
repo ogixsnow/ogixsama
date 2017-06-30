@@ -83,6 +83,7 @@
     <Compile Include="Assets\script\Gravity.cs" />
     <Compile Include="Assets\script\PlayerMove.cs" />
     <Compile Include="Assets\script\SightCtrl.cs" />
+    <Compile Include="Assets\script\Ui.cs" />
     <Compile Include="Assets\script\Weapon.cs" />
     <Compile Include="Assets\script\inputkeys.cs" />
   </ItemGroup>
