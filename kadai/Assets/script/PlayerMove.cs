@@ -11,10 +11,10 @@ public class PlayerMove : MonoBehaviour {
     private const float         GRAVITY = 9.8f;         //重力
     private bool                moveType = true;        //1人称視点の時:true 3人称視点の時:false
 
-    public GameObject targetEnemy = null;               //Enemy格納用変数
-    public GameObject prefab_hitEffect1;                //プレイヤー攻撃時、ヒットエフェクト
-    private Vector3 attackPoint;                        //攻撃箇所（位置）
-    private Weapon weapon;                              //武器
+    public  GameObject          targetEnemy = null;     //Enemy格納用変数
+    public  GameObject          prefab_hitEffect1;      //プレイヤー攻撃時、ヒットエフェクト
+    private Vector3             attackPoint;            //攻撃箇所（位置）
+    private Weapon              weapon;                //武器
 
     
     void Start () {
@@ -30,11 +30,11 @@ public class PlayerMove : MonoBehaviour {
 
         if (moveType)
         {
-            playerMove_1Parson();
+            playerMove_1Parson();                               //1人称視点操作
         }
         else
         {
-            playerMove_3Parson();
+            playerMove_3Parson();                               //3人称視点操作
         }
     }
 
@@ -46,7 +46,7 @@ public class PlayerMove : MonoBehaviour {
             case 0:
                 if(targetEnemy != null)
                 {
-                    GameObject effect = Instantiate(prefab_hitEffect1, attackPoint, Quaternion.identity) as GameObject;
+                    GameObject effect = Instantiate(prefab_hitEffect1, attackPoint, Quaternion.identity) as GameObject; //エフェクト発生
                     Destroy(effect, 0.2f);
                     Destroy(targetEnemy);
                 }
@@ -57,7 +57,7 @@ public class PlayerMove : MonoBehaviour {
     //武器変更
     private void change_weapon()
     {
-        weapon.changeWeapon();
+        weapon.changeWeapon();          //武器切り替え
     }
 
     //視点切り替え
@@ -70,32 +70,32 @@ public class PlayerMove : MonoBehaviour {
     private void playerMove_1Parson() { 
         //移動量取得
         float y = move.y;
-        move = new Vector3(0.0f, 0.0f, Input.GetAxis("Vertical"));
-        move = transform.TransformDirection(move);
-        move *= speed;
+        move = new Vector3(0.0f, 0.0f, Input.GetAxis("Vertical"));  //上下キー入力を取得、移動量に代入
+        move = transform.TransformDirection(move);                  //プレイヤー基準の移動方向へ修正
+        move *= speed;                                              //移動速度を乗算
 
         //重力/ジャンプ処理
         move.y += y;
-        if (charaCon.isGrounded)
+        if (charaCon.isGrounded)                                    //地面に設置していたら
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space))                    //ジャンプ処理
             {
                 move.y = jumpPower;
             }
         }
-        move.y -= GRAVITY * Time.deltaTime;
+        move.y -= GRAVITY * Time.deltaTime;                         //重力代入
 
         //プレイヤーの向き変更
-        Vector3 playerDir = new Vector3(Input.GetAxis("Horizontal"), 0.0f, 0.0f);
-        playerDir = transform.TransformDirection(playerDir);
+        Vector3 playerDir = new Vector3(Input.GetAxis("Horizontal"), 0.0f, 0.0f);                                 //左右キー入力を取得。移動方向に代入
+        playerDir = transform.TransformDirection(playerDir);                                                      //プレイヤー基準の向きたい方向へ修正
         if (playerDir.magnitude > 0.1f)
         {
-            Quaternion q = Quaternion.LookRotation(playerDir);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, q, rotationSpeed*Time.deltaTime);
+            Quaternion q = Quaternion.LookRotation(playerDir);                                                   //向きたい方角をQuaternion型に直す
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, q, rotationSpeed*Time.deltaTime);  //向きをqに向けて徐々に変化
         }
 
         //移動処理
-        charaCon.Move(move * speed * Time.deltaTime);
+        charaCon.Move(move * speed * Time.deltaTime);            
 	}
 
     //3人称視点移動
@@ -103,9 +103,10 @@ public class PlayerMove : MonoBehaviour {
     {
         //移動量取得
         float y = move.y;
-        move = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
-        Vector3 playerDir = move;
-        move *= speed;
+        move = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));  //上下左右のキー入力を取得し、移動量に代入
+    
+        Vector3 playerDir = move;       //移動方向を取得
+        move *= speed;                  //移動速度を乗算
 
         //重力/ジャンプ処理
         move.y += y;
@@ -131,19 +132,19 @@ public class PlayerMove : MonoBehaviour {
     //Enemy(ターゲット)情報を取得
     private void setTargetEnemy()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hitInfo;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);    //クリックした位置から光線を真っすぐ発射
+        RaycastHit hitInfo;                                             //ヒット情報を格納する変数を作成
 
-        if(Physics.Raycast(ray, out hitInfo , 10))
+        if(Physics.Raycast(ray, out hitInfo , 10))                      //カメラから距離10の光線を出し、もし何かに当たった場合
         {
-            if(hitInfo.collider.gameObject.tag == "Enemy")
+            if(hitInfo.collider.gameObject.tag == "Enemy")              //タグがEnemyだったら
             {
-                targetEnemy = hitInfo.collider.gameObject;
-                attackPoint = hitInfo.point;
-                return;
+                targetEnemy = hitInfo.collider.gameObject;              //オブジェクトを参照
+                attackPoint = hitInfo.point;                            //光線が当たった位置を取得
+                return;                                                 //ターゲットが見つかったので、処理を抜ける
             }
         }
-        targetEnemy = null;
+        targetEnemy = null;                                             //Enemyが見つからない場合はnull
     }
 
    
